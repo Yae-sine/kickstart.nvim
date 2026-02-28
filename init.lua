@@ -675,7 +675,29 @@ require('lazy').setup({
       vim.lsp.enable 'lua-language-server'
     end,
   },
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  --My custom plugins
+  -- Leetcode specific plugin
+  {
+    'kawre/leetcode.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim', -- Required by telescope
+      'MunifTanjim/nui.nvim',
+    },
+    opts = {
+      lang = 'python3', -- or "java"
+    },
+  },
 
+  { -- Auto-close pairs (brackets, quotes, etc.)
+    'echasnovski/mini.pairs',
+    version = false, -- Use the latest version
+    config = function() require('mini.pairs').setup() end,
+  },
+
+
+  -------------------------------------------------------------------------------------------------------------------------------------------
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
