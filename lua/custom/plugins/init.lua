@@ -3,8 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  -- ... your other custom plugins ...
-  {
-    'mfussenegger/nvim-jdtls',
+  require('lazy').setup {
+    'Theprimeagen/vim-be-good',
   },
 }

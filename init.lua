@@ -141,7 +141,7 @@ vim.o.splitbelow = true
 
 -- Mapping jk and jj to ESC
 vim.keymap.set('i', 'jk', '<ESC>', { noremap = false })
-vim.keymap.set('i', 'jj', '<ESC>', { noremap = false })
+--vim.keymap.set('i', 'jj', '<ESC>', { noremap = false })
 -- Disabling arrow keys in Insert , Normal and Visual modes
 
 local modes = { 'n', 'i', 'v' }
@@ -269,21 +269,12 @@ rtp:prepend(lazypath)
 --  To update plugins you can run
 --    :Lazy update
 
-
-
-
-
-
-
-
-
-
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
   { 'NMAC427/guess-indent.nvim', opts = {} },
-
+  { 'ThePrimeagen/vim-be-good' },
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
   --    {
@@ -685,9 +676,6 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'mfussenegger/nvim-jdtls',
-  },
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -719,7 +707,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -915,7 +903,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --{ import = 'custom.plugins' },
+  -- { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
