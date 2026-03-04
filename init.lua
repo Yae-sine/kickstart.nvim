@@ -1,7 +1,7 @@
 --[[
 
 =====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
+=================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
 =======         .----------------------.   | === |          ========
@@ -615,9 +615,12 @@ require('lazy').setup({
         pyright = {},
         -- rust_analyzer = {},
         ruff = {},
-
+        -- angularls = {},
+        -- html = {},
+        -- cssls = {},
+        -- jsonls = {},
         -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
+        -- https://github.com/pmizio/typescript-tools.nvim ,
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
@@ -636,6 +639,15 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'pyright',
         'ruff',
+
+        -- 'typescript-language-server',
+        -- 'angular-language-server',
+        -- 'html-lsp',
+        -- 'css-lsp',
+        -- 'json-lsp',
+        -- 'prettier',
+        -- 'eslint_d',
+
         -- You can add other tools here that you want Mason to install
       })
 
@@ -686,16 +698,15 @@ require('lazy').setup({
       'MunifTanjim/nui.nvim',
     },
     opts = {
-      lang = 'python3', -- or "java"
+      lang = 'python', -- or "java"
     },
   },
 
-  { -- Auto-close pairs (brackets, quotes, etc.)
-    'echasnovski/mini.pairs',
-    version = false, -- Use the latest version
-    config = function() require('mini.pairs').setup() end,
-  },
-
+  --  { -- Auto-close pairs (brackets, quotes, etc.)
+  --    'echasnovski/mini.pairs',
+  --   version = false, -- Use the latest version
+  --   config = function() require('mini.pairs').setup() end,
+  -- },
 
   -------------------------------------------------------------------------------------------------------------------------------------------
   { -- Autoformat
@@ -733,6 +744,10 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        -- html = { 'prettier' },
+        -- css = { 'prettier' },
+        -- scss = { 'prettier' },
+        -- json = { 'prettier' },
       },
     },
   },
@@ -896,7 +911,7 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      local filetypes = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      local filetypes = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'javascript', 'typescript' }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
